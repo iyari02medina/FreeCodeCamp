@@ -174,6 +174,50 @@ function testSize(num) {
 }
 console.log(testSize(18));
 
+// Use the Conditional (Ternary) Operator
+
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater or equal";
+}
+console.log(findGreater(7,5));
+
+// Use Multiple Conditional (Ternary) Operators
+
+function findGreaterOrEqual(a, b) {
+  return a === b
+    ? "a and b are equal"
+    : a > b
+    ? "a is greater"
+    : "b is greater";
+}
+console.log(findGreaterOrEqual(2,2))
+
+// Use Recursion to Create a Countdown
+
+function countup(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countup(n -1);
+    countArray.push(n);
+    return countArray;
+  }
+}
+console.log(countup(5));
+
+
+function rangeOfNumbers(startNum, endNum) {
+  if (endNum === startNum ) {
+    return [startNum];
+  } else {
+    var numbers = rangeOfNumbers(startNum, endNum - 1);
+    numbers.push(endNum);
+    return numbers;
+  }
+}
+console.log(rangeOfNumbers(1,5))
+
+
 // / / / / / / / / / / / / / / / / / / / / / GOLF CODE  / / / / / / / / / / / / / / / / / / / / / /
 
 // solution 1
