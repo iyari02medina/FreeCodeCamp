@@ -232,3 +232,183 @@ const bicycle = {
 };
 bicycle.setGear(4);
 console.log(bicycle.gear);
+
+// Use la sintaxis de clase para definir una función constructora //
+
+/* ES5
+En ES5, generalmente definimos una constructorfunción y usamos la newpalabra clave para instanciar un objeto.
+
+var SpaceShuttle = function(targetPlanet){
+  this.targetPlanet = targetPlanet;
+}
+var zeus = new SpaceShuttle('Jupiter'); 
+*/
+
+class SpaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+}
+const zeus = new SpaceShuttle("Jupiter");
+
+
+class Vegetable {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+const carrot = new Vegetable("carrot");
+console.log(carrot.name); // => should be 'carrot'
+
+// Use getters y setters para controlar el acceso a un objeto
+
+class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer() {
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
+const novel = new Book("anonymous");
+console.log(novel.writer);
+novel.writer = "newAuthor";
+console.log(novel.writer);
+
+
+class Thermostat {
+  constructor(fahrenheit) {
+    this.fahrenheit = fahrenheit;
+  }
+  get temperature() {
+    return (5 / 9) * (this.fahrenheit - 32);
+  }
+  set temperature(celsius) {
+    this.fahrenheit = (celsius * 9.0) / 5 + 32;
+  }
+}
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+console.log(thermos)
+let temp = thermos.temperature; // 24.44 in Celsius
+console.log(temp)
+thermos.temperature = 26;
+console.log(thermos)
+temp = thermos.temperature; // 26 in Celsius
+console.log(temp)
+
+// Create a Module Script
+/* 
+<html>
+  <body>
+    <!-- add your code below -->
+    <script type="module" src="index.js"></script>
+    <!-- add your code above -->
+  </body>
+</html>
+ */
+
+// Use export to Share a Code Block
+
+const add = (x, y) => {
+  return x + y;
+};
+export { add };
+
+
+export const uppercaseString = (string) => {
+  return string.toUpperCase();
+};
+export const lowercaseString = (string) => {
+  return string.toLowerCase();
+};
+
+// Reuse JavaScript Code Using import
+
+/* import { add } from "./math_functions.js"; */
+
+// Use * to Import Everything from a File
+
+/* import * as myMathModule from "./math_functions.js"; */
+
+// Create an Export Fallback with export default
+
+/* export default function add(x, y) {
+  return x + y;
+}
+export default function(x, y) {
+  return x + y;
+} */
+
+// Import a Default Export
+
+/* import add2 from "./math_functions.js"; */
+
+// Create a JavaScript Promise
+
+/*
+ Promisees una función constructora, por lo que debe usar la newpalabra clave para crear una. Toma una función, como su argumento, con dos parámetros - resolvey reject. Estos son métodos utilizados para determinar el resultado de la promesa. 
+ */
+
+ const myPromise = new Promise((resolve, reject) => {});
+
+ // Complete a Promise with resolve and reject
+
+ /* Una promesa tiene tres estados: pending, fulfilledy rejected. La promesa que creaste en el último desafío está bloqueada para siempre en el pendingestado porque no agregaste una forma de completar la promesa. Los parámetros resolvey rejectproporcionados al argumento de la promesa se utilizan para hacer esto. resolvese usa cuando quiere que su promesa tenga éxito y rejectse usa cuando quiere que falle. */
+
+ const myPromise2 = new Promise((resolve, reject) => {
+  if(true/* condition here */) {
+    resolve("Promise was fulfilled");
+  } else {
+    reject("Promise was rejected");
+  }
+});
+
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer represents a response from a server
+  let responseFromServer;
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {	
+    reject("Data not received");
+  }
+});
+
+// Handle a Fulfilled Promise with then
+
+const makeServerRequest2 = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  let responseFromServer = true;
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {	
+    reject("Data not received");
+  }
+});
+makeServerRequest2.then(result => {
+  console.log(result);
+});
+
+// Handle a Rejected Promise with catch
+
+const makeServerRequest3 = new Promise((resolve, reject) => {
+  // responseFromServer is set to false to represent an unsuccessful response from a server
+  let responseFromServer = false;
+  if (responseFromServer) {
+    resolve("We got the data");
+  } else {
+    reject("Data not received");
+  }
+});
+makeServerRequest3.then((result) => {
+  console.log(result);
+});
+makeServerRequest3.catch((error) => {
+  console.log(error);
+});
