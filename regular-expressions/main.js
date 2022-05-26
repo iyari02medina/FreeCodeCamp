@@ -216,3 +216,107 @@ let lastRegex = /caboose$/; // Change this line
 let result9 = lastRegex.test(caboose);
 console.log(result9);
 
+// Match All Letters and Numbers
+/* 
+La clase de caracteres más cercana en JavaScript para coincidir con el alfabeto es "\w".
+ */
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+const ljn= longHand.test(numbers);
+console.log(ljn);
+const shn= shortHand.test(numbers);
+console.log(shn);
+const lhname= longHand.test(varNames);
+console.log(lhname);
+const shname=shortHand.test(varNames);
+console.log(shname);
+
+let quoteSample3 = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/gi; // Change this line
+let resul3 = quoteSample.match(alphabetRegexV2).length;
+console.log(resul3);
+
+// Match Everything But Letters and Numbers
+/* 
+Puede buscar el opuesto de \wcon \W. Tenga en cuenta que el patrón opuesto usa una letra mayúscula. Este atajo es el mismo que [^A-Za-z0-9_]
+ */
+let shortHand2 = /\W/;
+let numbers2 = "42%";
+let sentence = "Coding!";
+console.log(numbers2.match(shortHand2));
+console.log(sentence.match(shortHand2));
+
+// Match All Numbers
+/* 
+El atajo para buscar caracteres de dígitos es \d, con minúsculas d. Esto es igual a la clase de caracteres [0-9]
+ */
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; 
+let resul = movieName.match(numRegex).length;
+console.log(resul);
+
+// Match All Non-Numbers
+/* 
+El atajo para buscar caracteres que no sean dígitos es \D. Esto es igual a la clase de caracteres [^0-9]
+ */
+let movieName2 = "2001: A Space Odyssey";
+let noNumRegex = /\D/g; 
+let resul2 = movieName2.match(noNumRegex).length;
+console.log(resul2);
+
+// Match Whitespace
+/* 
+Puede buscar espacios en blanco usando \s, que es una minúscula s.
+ */
+let whiteSpace = "Whitespace. Whitespace everywhere!";
+let spaceRegex = /\s/g;
+console.log(whiteSpace.match(spaceRegex));
+
+// Match Non-Whitespace Characters
+/* 
+Busque espacios que no sean en blanco usando \S, que es una mayúscula
+ */
+let whiteSpace2 = "Whitespace. Whitespace everywhere!";
+let nonSpaceRegex = /\S/g;
+console.log(whiteSpace.match(nonSpaceRegex).length);
+
+// Specify Upper and Lower Number of Matches
+/* 
+Los especificadores de cantidad se utilizan con corchetes ( {y }). Pones dos números entre las llaves, para el número inferior y superior de patrones.
+ */
+let A4 = "aaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+console.log(multipleA.test(A4));
+console.log(multipleA.test(A2));
+
+// Specify Only the Lower Number of Matches
+/* 
+Para especificar solo el número más bajo de patrones, mantenga el primer número seguido de una coma.
+ */
+let a4 = "haaaah";
+let a2 = "haah";
+let a100 = "h" + "a".repeat(100) + "h";
+let multipleA2 = /ha{3,}h/;
+console.log(multipleA2.test(a4));
+console.log(multipleA2.test(a2));
+console.log(multipleA2.test(a100));
+
+let haStr = "Hazzzzah";
+let haRegex = /haz{4,}ah/gi; // Change this line
+console.log(haRegex.test(haStr));
+
+// Specify Exact Number of Matches
+/* 
+Para especificar una cierta cantidad de patrones, solo tenga ese número entre llaves.
+ */
+let A = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleHA = /ha{3}h/;
+console.log(multipleHA.test(A4));
+console.log(multipleHA.test(A3));
+console.log(multipleHA.test(A100));
+
