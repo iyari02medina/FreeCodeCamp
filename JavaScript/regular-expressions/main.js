@@ -320,3 +320,79 @@ console.log(multipleHA.test(A4));
 console.log(multipleHA.test(A3));
 console.log(multipleHA.test(A100));
 
+let timStr = "Timmmmber";
+let timRegex = /tim{4}ber/gi; 
+console.log(timRegex.test(timStr));
+
+// Check for All or None
+/* 
+Puede especificar la posible existencia de un elemento con un signo de interrogación, ?
+ */
+let american = "color";
+let british = "colour";
+let rainbowRegex = /colou?r/;
+console.log(rainbowRegex.test(american));
+console.log(rainbowRegex.test(british));
+
+let favWord = "favorite";
+let favRegex = /favou?rite/gi; // Change this line
+console.log(favRegex.test(favWord));
+
+//  ositive and Negative Lookahead
+/* 
+Una búsqueda anticipada positiva buscará asegurarse de que el elemento en el patrón de búsqueda esté allí, pero en realidad no lo coincidirá. Se utiliza una búsqueda anticipada positiva (?=...)donde el ... es la parte requerida que no coincide.
+ */
+/* 
+una búsqueda anticipada negativa buscará asegurarse de que el elemento en el patrón de búsqueda no esté allí. Se utiliza una búsqueda anticipada negativa (?!...)donde ...está el patrón que no desea que esté allí.
+ */
+let quit = "qu";
+let noquit = "qt";
+let quRegex = /q(?=u)/;
+let qRegex = /q(?!u)/;
+console.log(quit.match(quRegex));
+console.log(noquit.match(qRegex));
+
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+console.log(checkPass.test(password));
+
+//  Check For Mixed Grouping of Characters
+/* 
+A veces queremos verificar grupos de caracteres usando una expresión regular y para lograr eso usamos paréntesis ().
+ */
+let testStr4 = "Pumpkin";
+let testRegex4 = /P(engu|umpk)in/;
+console.log(testRegex4.test(testStr4));
+
+let myString3 = "Eleanor Roosevelt";
+let myRegex7 = /(Franklin|Eleanor).*Roosevelt/; 
+console.log(myRegex7.test(myString3)); 
+
+// Reuse Patterns Using Capture Groups
+/* 
+Los grupos de captura se construyen encerrando entre paréntesis el patrón de expresión regular que se va a capturar ej. "/(\w+)/."  // "w" el programa buscara palabras que contengan la letra "w".
+La subcadena que coincide con el grupo se guarda en una "variable" temporal, a la que se puede acceder dentro de la misma expresión regular usando una barra invertida y el número del grupo de captura (p. ej \1., ).
+ */
+let repeatStr = "row row row your boat";
+let repeatRegex = /(\w+) \1 \1 /;
+console.log(repeatRegex.test(repeatStr));
+console.log(repeatStr.match(repeatRegex)); 
+
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/;
+console.log(reRegex.test(repeatNum));
+console.log(repeatNum.match(repeatRegex));
+
+// Use Capture Groups to Search and Replace
+/* 
+Puede buscar y reemplazar texto en una cadena usando .replace()en una cadena. Las entradas para .replace()son primero el patrón de expresiones regulares que desea buscar. El segundo parámetro es la cadena para reemplazar la coincidencia o una función para hacer algo.
+ */
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+console.log(wrongText.replace(silverRegex, "blue"));
+
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; 
+let replaceText = "$3 $2 $1"; 
+console.log(str.replace(fixRegex, replaceText));
+
