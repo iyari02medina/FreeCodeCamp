@@ -2,19 +2,28 @@
 
 <!-- Puede agregar Bootstrap a cualquier aplicación agregando el siguiente código en la parte superior de su HTML:  -->
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"
+/>
 
 ### 2. imágenes respondan a los dispositivos móviles
 
 <!-- lo que tenemos que hacer es agregar la img-responsive clase a su imagen. Haga esto, y la imagen debe ajustarse perfectamente al ancho de su página -->
 
-<img class="img-responsive" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/running-cats.jpg" alt="">
+<img
+  class="img-responsive"
+  src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/running-cats.jpg"
+  alt=""
+/>
 
 ### 3. Centrar texto
 
 <!--  lo que tenemos que hacer es agregar la clase text-center a nuestro elemento. -->
 
-<h2 class="text-center red-text ">CatPhotoApp</h2>
+<h2 class="text-center red-text">CatPhotoApp</h2>
 
 ### 4. Crear un botón
 
@@ -25,9 +34,9 @@
 
 <!-- Al hacer que bloqueen elementos con la clase adicional de btn-block, su botón se estirará para llenar todo el espacio horizontal de su página y cualquier elemento que lo siga fluirá hacia una "nueva línea" debajo del bloque. -->
 
-<button class="btn btn-default  btn-block">Like</button>
+<button class="btn btn-default btn-block">Like</button>
 
-### 6. Pruebe el color del arco iris del botón 
+### 6. Pruebe el color del arco iris del botón
 
 <!-- La btn-primaryclase es el color principal que usará en su aplicación. Es útil para resaltar las acciones que desea que realice su usuario. -->
 
@@ -39,5 +48,296 @@
 
 <button class="btn btn-block btn-info">Info</button>
 
+### 8. acción peligrosa con btn-danger
 
+<!-- La btn-danger clase es el color del botón que usará para notificar a los usuarios que el botón realiza una acción destructiva -->
 
+<button class="btn-danger btn btn-block">Delete</button>
+
+### 9. Use la cuadrícula de Bootstrap para poner elementos uno al lado del otro
+
+<!-- Bootstrap utiliza un sistema de cuadrícula de 12 columnas receptivo, lo que facilita colocar elementos en filas y especificar el ancho relativo de cada elemento. La mayoría de las clases de Bootstrap se pueden aplicar a un div elemento. -->
+
+<div class="row">
+  <div class="col-xs-4">
+    <button class="btn btn-block btn-primary">Like</button>
+  </div>
+  <div class="col-xs-4">
+    <button class="btn btn-block btn-info">Info</button>
+  </div>
+  <div class="col-xs-4">
+    <button class="btn btn-block btn-danger">Delete</button>
+  </div>
+</div>
+
+### 10 (es un ejercicio poco relevante) ### 11. Use un tramo para apuntar a
+elementos en línea
+<!-- Al usar el spanelemento en línea, puede colocar varios elementos en la misma línea e incluso diseñar diferentes partes de la misma línea de manera diferente. -->
+
+<p>Things cats love: <span class="text-danger">love</span></p>
+
+### 12. Crear un encabezado personalizado
+
+<div class="row">
+  <div class="col-xs-8">
+    <h2 class="text-primary text-center">CatPhotoApp</h2>
+  </div>
+  <div class="col-xs-4">
+    <a href="#"
+      ><img
+        class="img-responsive thick-green-border"
+        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+        alt="A cute orange cat lying on its back."
+    /></a>
+  </div>
+</div>
+
+### 13. Agregue iconos de Font Awesome a nuestros botones
+<!-- Puede incluir Font Awesome en cualquier aplicación agregando el siguiente código en la parte superior de su HTML: -->
+
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
+
+<!-- El ielemento se usó originalmente para poner en cursiva otros elementos, pero ahora se usa comúnmente para íconos. Puede agregar las clases de Font Awesome al ielemento para convertirlo en un ícono, por ejemplo: -->
+
+<button class="btn btn-block btn-primary">
+  <i class="fas fa-thumbs-up"></i>
+  Like
+</button>
+
+### 14. Agregue iconos Font Awesome a todos nuestros botones
+
+<!-- Font Awesome es una cómoda biblioteca de iconos. Estos iconos pueden ser fuentes web o gráficos vectoriales. -->
+
+<div class="col-xs-4">
+  <button class="btn btn-block btn-info">
+    <i class="fas fa-info-circle"></i>Info
+  </button>
+</div>
+<div class="col-xs-4">
+  <button class="btn btn-block btn-danger">
+    <i class="fas fa-trash"></i>Delete
+  </button>
+</div>
+
+### 15. Botones de radio de estilo responsive
+
+<!-- ¡También puedes usar las col-xs-*clases de Bootstrap en formelementos! De esta manera, nuestros botones de radio se distribuirán uniformemente en la página, independientemente de qué tan ancha sea la resolución de la pantalla. -->
+
+<form action="https://freecatphotoapp.com/submit-cat-photo">
+  <div class="row">
+    <div class="col-xs-6">
+      <label><input type="radio" name="indoor-outdoor" /> Indoor</label>
+    </div>
+    <div class="col-xs-6">
+      <label><input type="radio" name="indoor-outdoor" /> Outdoor</label>
+    </div>
+  </div>
+</form>
+
+### 16. Casillas de verificación de estilo responsive
+
+<!-- Dado que las clases de Bootstrap col-xs-*son aplicables a todos los formelementos, ¡también puede usarlas en sus casillas de verificación! De esta manera, las casillas de verificación se distribuirán uniformemente en la página, independientemente de la resolución de la pantalla. -->
+
+<form action="https://freecatphotoapp.com/submit-cat-photo">
+  <div class="row">
+    <div class="col-xs-6">
+      <label><input type="radio" name="indoor-outdoor" /> Indoor</label>
+    </div>
+    <div class="col-xs-6">
+      <label><input type="radio" name="indoor-outdoor" /> Outdoor</label>
+    </div>
+    <div class="col-xs-4">
+      <label><input type="checkbox" name="personality" /> Loving</label>
+    </div>
+    <div class="col-xs-4">
+      <label><input type="checkbox" name="personality" /> Lazy</label>
+    </div>
+    <div class="col-xs-4">
+      <label><input type="checkbox" name="personality" /> Crazy</label>
+    </div>
+  </div>
+  <input type="text" placeholder="cat photo URL" required />
+  <button type="submit">Submit</button>
+</form>
+
+### 17. Estilo de entradas de texto como controles de formulario
+
+<!-- Puede agregar el fa-paper-plane ícono de Font Awesome agregando <i class="fa fa-paper-plane"></i>dentro de su elemento de envío button. -->
+
+<!--  los elementos textuales <input>, <textarea> y <select> con la clase .form-controltienen un ancho del 100 %. -->
+
+<input type="text" class="form-control" placeholder="cat photo URL" required />
+<button class="btn btn-primary" type="submit">
+  <i class="fa fa-paper-plane"></i>Submit
+</button>
+
+### 18. Alinee elementos de formulario de forma receptiva con Bootstrap
+
+<div class="row">
+  <div class="col-xs-7">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="cat photo URL"
+      required
+    />
+  </div>
+  <div class="col-xs-5">
+    <button type="submit" class="btn btn-primary">
+      <i class="fa fa-paper-plane"></i> Submit
+    </button>
+  </div>
+</div>
+
+### 19. Crear un título Bootstrap
+
+<h3 class="text-primary text-center">jQuery Playground</h3>
+
+### 20. Aloje nuestra página dentro de un div contenedor-fluido de Bootstrap
+
+<!-- Ahora asegurémonos de que todo el contenido de su página sea compatible con dispositivos móviles. -->
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+</div>
+
+### 21. Crear una fila Bootstrap
+
+<!-- Ahora crearemos una fila Bootstrap para nuestros elementos en línea. -->
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row"></div>
+</div>
+
+### 22. Divida su fila Bootstrap
+
+<!-- Ahora que tenemos una fila Bootstrap, dividámosla en dos columnas para albergar nuestros elementos. -->
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+<div class="col-xs-6"></div>
+<div class="col-xs-6"></div>
+  </div>
+</div>
+
+### 23. Crear pozos de arranque
+
+<!-- Bootstrap tiene una clase llamada well que puede crear una sensación visual de profundidad para sus columnas. -->
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="well"></div>
+    </div>
+    <div class="col-xs-6">
+      <div class="well"></div>
+    </div>
+  </div>
+</div>
+
+### 24. Agregue elementos dentro de sus pozos Bootstrap
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="well">
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+        
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="well">
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>        
+      </div>
+    </div>
+  </div>
+</div>
+
+### 25. Aplicar el estilo de botón Bootstrap predeterminado (no es relevante)
+
+### 26. Agregar atributos de identificación a los elementos de Bootstrap
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="well" id="left-well">
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="well" id="right-well">
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+### 27. Label Bootstrap Wells
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <h4>#left-well</h4>  <!-- label -->
+      <div class="well" id="left-well">
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h4>#right-well</h4> <!-- label -->
+      <div class="well" id="right-well">
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+        <button class="btn btn-default target"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+### 28. Dale a cada elemento una identificación única
+
+<!-- También querremos poder usar jQuery para orientar cada botón por su identificación única. -->
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <h4>#left-well</h4>
+      <div class="well" id="left-well">
+        <button class="btn btn-default target" id="target1">#target1</button>
+        <button class="btn btn-default target" id="target2">#target2</button>
+        <button class="btn btn-default target" id="target3">#target3</button>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h4>#right-well</h4>
+      <div class="well" id="right-well">
+        <button class="btn btn-default target" id="target4">#target4</button>
+        <button class="btn btn-default target" id="target5">#target5</button>
+        <button class="btn btn-default target" id="target6">#target6</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+### 29. no es relevante 
