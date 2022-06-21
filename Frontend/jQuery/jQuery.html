@@ -1,0 +1,127 @@
+### 1. Aprenda cómo funcionan las etiquetas de secuencias de comandos y Document Ready
+
+<!-- agregue un scriptelemento en la parte superior de su página. Asegúrese de cerrarlo en la siguiente línea.
+Dentro de su scriptelemento, agregue este código: $(document).ready(function() {a su archivo script. Luego ciérrelo en la siguiente línea (todavía dentro de su scriptelemento) con:});
+ -->
+ <script>
+  $(document).ready(function() {
+  });
+</script>
+
+### 2. Target HTML Elements with Selectors Using jQuery
+
+<!-- Todas las funciones de jQuery comienzan con un $, generalmente denominado operador de signo de dólar o bling.
+jQuery a menudo selecciona un elemento HTML con un selector y luego hace algo con ese elemento. -->
+
+<script>
+  $(document).ready(function() {
+    $("button").addClass("animated bounce"); // <--
+  });
+</script>
+
+### 3. Target Elements by Class Using jQuery
+
+<!-- la función de jQuery .addClass(), que le permite agregar clases a los elementos. al igual que con las declaraciones CSS, escribe  "." antes del nombre de la clase. -->
+
+<script>
+  $(document).ready(function() {
+    $("button").addClass("animated bounce");
+    $(".well").addClass("animated bounce"); // <--
+    $(".well").addClass("shake"); // <--
+  });
+</script>
+
+### 4. Target Elements by id Using jQuery
+
+<!-- Al igual que con las declaraciones CSS, escribe a "#" antes del nombre de la identificación. -->
+
+<script>
+  $(document).ready(function() {
+    $("#target3").addClass("animated");
+    $("#target3").addClass("fadeOut");
+  });
+</script>
+
+### 5. Eliminar sus funciones jQuery (no es relevante)
+
+### 6. no es relevante 
+
+### 7. Eliminar clases de un elemento con jQuery
+
+<!-- De la misma manera que puede agregar clases a un elemento con la addClass()función de jQuery, puede eliminarlas con la removeClass()función de jQuery. -->
+
+### 8. Cambiar el CSS de un elemento usando jQuery
+
+<!-- jQuery tiene una función llamada .css() que te permite cambiar el CSS de un elemento. -->
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+
+  });
+</script>
+
+### 9. Deshabilitar un elemento usando jQuery
+
+<!-- jQuery tiene una función llamada .prop() que te permite ajustar las propiedades de los elementos. --> 
+
+<!-- jQuery tiene una función llamada .html() que le permite agregar etiquetas HTML y texto dentro de un elemento. Cualquier contenido previamente dentro del elemento se reemplazará por completo con el contenido que proporcione mediante esta función. -->
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target4").html('<em>#target4</em>'); // <--
+  });
+</script>
+
+### 10. Eliminar un elemento usando jQuery
+
+<!-- jQuery tiene una función llamada .remove() que eliminará un elemento HTML por completo -->
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove(); // <--
+  });
+</script>
+
+### 11. Use appendTo para mover elementos con jQuery
+
+<!-- jQuery tiene una función llamada appendTo() que le permite seleccionar elementos HTML y agregarlos a otro elemento. -->
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well"); // <--
+  });
+</script>
+
+### 12. Clonar un elemento usando jQuery
+
+<!-- jQuery tiene una función llamada clone()que hace una copia de un elemento. -->
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well"); // <--
+  });
+</script>
+
+### 13. Diríjase al padre de un elemento usando jQuery
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red") // <--
+  });
+</script>
