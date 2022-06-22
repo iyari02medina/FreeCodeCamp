@@ -1,0 +1,210 @@
+### 1. Almacenar datos con variables Sass
+
+<!-- Una característica de Sass que es diferente a CSS es que usa variables. Se declaran y configuran para almacenar datos, de forma similar a JavaScript.
+En JavaScript, las variables se definen usando las palabras clave let y const. En Sass, las variables comienzan con un $ seguido del nombre de la variable. -->
+
+<style type='text/scss'>
+  $text-color: red;
+
+  .header{
+    text-align: center;
+  }
+  .blog-post, h2 {
+    color: $text-color;
+  }
+</style>
+
+### 2. Anidar CSS con Sass
+
+<!-- Sass permite el anidamiento de reglas CSS, que es una forma útil de organizar una hoja de estilo. Para un proyecto grande, el archivo CSS tendrá muchas líneas y reglas. Aquí es donde el anidamiento puede ayudar a organizar su código colocando reglas de estilo secundarias dentro de los elementos principales respectivos: -->
+
+### 3. Crear CSS reutilizable con Mixins
+<!-- 
+En Sass, un mixin es un grupo de declaraciones CSS que se pueden reutilizar en toda la hoja de estilo.
+
+Las funciones CSS más nuevas tardan un tiempo antes de que se adopten por completo y estén listas para usar en todos los navegadores. A medida que se agregan funciones a los navegadores, las reglas CSS que las usan pueden necesitar prefijos de proveedores. Considere box-shadow:   -->
+
+div {
+  -webkit-box-shadow: 0px 0px 4px #fff;
+  -moz-box-shadow: 0px 0px 4px #fff;
+  -ms-box-shadow: 0px 0px 4px #fff;
+  box-shadow: 0px 0px 4px #fff;
+}
+
+<!-- Es mucho escribir para volver a escribir esta regla para todos los elementos que tienen un box-shadow, o para cambiar cada valor para probar diferentes efectos. Los mixins son como funciones para CSS. Aquí está cómo escribir uno: -->
+
+@mixin box-shadow($x, $y, $blur, $c){ 
+  -webkit-box-shadow: $x $y $blur $c;
+  -moz-box-shadow: $x $y $blur $c;
+  -ms-box-shadow: $x $y $blur $c;
+  box-shadow: $x $y $blur $c;
+}
+
+<!-- La definición comienza con @mixinseguida de un nombre personalizado. Los parámetros (el $x, $y, $blury $cen el ejemplo anterior) son opcionales. Ahora, cada vez box-shadowque se necesita una regla, solo una sola línea que llama al mixin reemplaza el tener que escribir todos los prefijos del proveedor. Un mixin se llama con la @include directiva: -->
+
+<style type='text/scss'>
+
+  @mixin border-radius($radius){
+    -webkit-border-radius:$radius;
+    -moz-border-radius:$radius;
+    -ms-border-radius:$radius;
+    border-radius:$radius;
+  }
+
+  #awesome {
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    @include border-radius(15px);
+  }
+</style>
+
+### 4. Use @if y @else para agregar lógica a sus estilos
+
+/*La @ifdirectiva en Sass es útil para probar un caso específico: funciona como la ifdeclaración en JavaScript.*/
+
+@mixin make-bold($bool) {
+  @if $bool == true {
+    font-weight: bold;
+  }
+}
+
+/* Y al igual que en JavaScript, @else ify @elseprueba para más condiciones: */
+
+@mixin text-effect($val) {
+  @if $val == danger {
+    color: red;
+  }
+  @else if $val == alert {
+    color: yellow;
+  }
+  @else if $val == success {
+    color: green;
+  }
+  @else {
+    color: black;
+  }
+}
+
+<style type='text/sass'>
+  @mixin border-stroke($val) {
+    @if $val == light {
+      border: 1px solid black;
+    }
+    @else if $val == medium {
+      border: 3px solid black;
+    }
+    @else if $val == heavy {
+      border: 6px solid black;
+    }
+    @else {
+      border: none;
+    }
+  }
+  
+  #box {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    @include border-stroke(medium);
+  }  
+</style>
+
+### 5. Use @for para crear un bucle Sass
+
+<--! La @fordirectiva agrega estilos en un bucle, muy similar a un forbucle en JavaScript.
+
+@forse utiliza de dos maneras: "de principio a fin" o "de principio a fin". La principal diferencia es que "de principio a fin" excluye el número final como parte del conteo, y "de principio a fin" incluye el número final como parte del conteo.
+
+Aquí hay un ejemplo de principio a fin:-->
+
+@for $i from 1 through 12 {
+  .col-#{$i} { width: 100%/12 * $i; }
+}
+
+/* La #{$i}parte es la sintaxis para combinar una variable ( i) con texto para formar una cadena */
+
+<style type='text/scss'>
+  @for $j from 1 through 5 {
+    .text-#{$j} { font-size: 15px * $j; }
+  }
+</style>
+
+### 6. Use @each para mapear elementos en una lista
+
+/* El último desafío mostró cómo la @fordirectiva usa un valor inicial y final para realizar un bucle una cierta cantidad de veces. Sass también ofrece la @eachdirectiva que recorre cada elemento en una lista o mapa. En cada iteración, la variable se asigna al valor actual de la lista o el mapa. */
+
+$colors: (color1: blue, color2: red, color3: green);
+
+@each $key, $color in $colors {
+  .#{$color}-text {color: $color;}
+}
+
+Tenga en cuenta que la $keyvariable es necesaria para hacer referencia a las claves en el mapa. De lo contrario, el CSS compilado tendría color1, color2... en él. Los dos ejemplos de código anteriores se convierten en el siguiente CSS:
+
+.blue-text {
+  color: blue;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+ // ejemplo
+<style type='text/scss'>
+
+  @each $color in blue, black, red {
+    .#{$color}-bg {background-color: $color;}
+  }
+  
+  div {
+    height: 200px;
+    width: 200px;
+  }
+
+</style>
+
+### 7. Aplicar un estilo hasta que se cumpla una condición con @while
+
+La @whiledirectiva es una opción con una funcionalidad similar al whilebucle de JavaScript. Crea reglas CSS hasta que se cumple una condición.
+
+$x: 1;
+@while $x < 13 {
+  .col-#{$x} { width: 100%/12 * $x;}
+  $x: $x + 1;
+}
+
+Primero, defina una variable $xy configúrela en 1. Luego, use la @whiledirectiva para crear el sistema de cuadrícula while $x es menor que 13. Después de configurar la regla CSS para width, $xse incrementa en 1 para evitar un bucle infinito.
+
+### 8. Divide tus estilos en trozos más pequeños con parciales
+
+Los parciales en Sass son archivos separados que contienen segmentos de código CSS. Estos se importan y utilizan en otros archivos Sass. Esta es una excelente manera de agrupar código similar en un módulo para mantenerlo organizado.
+
+Los nombres de los parciales comienzan con el _carácter de subrayado ( ), que le dice a Sass que es un pequeño segmento de CSS y que no debe convertirlo en un archivo CSS. Además, los archivos Sass terminan con la .scssextensión de archivo. Para llevar el código del parcial a otro archivo Sass, use la @importdirectiva.
+
+Por ejemplo, si todos sus mixins se guardan en un archivo parcial llamado "_mixins.scss", y se necesitan en el archivo "main.scss", esta es la forma de usarlos en el archivo principal:
+
+### 9. Extienda un conjunto de estilos CSS a otro elemento
+
+/* Sass tiene una característica llamada extendque facilita tomar prestadas las reglas CSS de un elemento y construir sobre ellas en otro.
+
+Por ejemplo, el siguiente bloque de reglas CSS le da estilo a una .panelclase. Tiene un background-color, heighty border.
+
+.panel{
+  background-color: red;
+  height: 70px;
+  border: 2px solid green;
+}
+Ahora quiere otro panel llamado .big-panel. Tiene las mismas propiedades base que .panel, pero también necesita un widthy font-size. Es posible copiar y pegar las reglas CSS iniciales desde .panel, pero el código se vuelve repetitivo a medida que agrega más tipos de paneles. La extenddirectiva es una forma sencilla de reutilizar las reglas escritas para un elemento y luego agregar más para otro:
+
+.big-panel{
+  @extend .panel;
+  width: 150px;
+  font-size: 2em;
+}
+.big-panelTendrán las mismas propiedades que además .panelde los nuevos estilo */
+
