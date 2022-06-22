@@ -125,3 +125,54 @@ jQuery a menudo selecciona un elemento HTML con un selector y luego hace algo co
     $("#target1").parent().css("background-color", "red") // <--
   });
 </script>
+
+### 14. Apuntar a los hijos de un elemento usando jQuery
+
+<!-- jQuery tiene una función llamada children()que le permite acceder a los elementos secundarios de cualquier elemento que haya seleccionado. -->
+
+<script>
+  $(document).ready(function() {
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color", "orange"); // <--
+  });
+</script>
+
+### 15. Dirigirse a un elemento secundario específico de un elemento mediante jQuery
+
+<!-- jQuery usa selectores de CSS para seleccionar elementos. El target:nth-child(n)selector de CSS le permite seleccionar todos los elementos n con la clase de destino o el tipo de elemento. -->
+
+<script>
+  $(document).ready(function() {
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color", "orange");
+    $(".target:nth-child(2)").addClass("animated bounce"); // <--
+  });
+</script>
+
+### 16. Apunta a elementos pares usando jQuery
+
+<!-- También puede orientar elementos en función de sus posiciones mediante los selectores :odd ó :even Tenga en cuenta que jQuery está indexado a cero, lo que significa que el primer elemento en una selección tiene una posición de 0. Esto puede ser un poco confuso ya que, de manera contraria a la intuición, :oddselecciona el segundo elemento (posición 1), el cuarto elemento (posición 3) y pronto. -->
+
+<script>
+  $(document).ready(function() {
+    $("#right-well").children().css("color", "orange");
+    $("#left-well").children().css("color", "green");
+    $(".target:nth-child(2)").addClass("animated bounce");
+    $(".target:even").addClass("animated shake"); // <-- 
+  });
+</script>
+
+### 17. Use jQuery para modificar toda la página
+
+<!-- jQuery bodytambién puede apuntar al elemento. -->
+
+<script>
+  $(document).ready(function() {
+    $("#right-well").children().css("color", "orange");
+    $("#left-well").children().css("color", "green");
+    $(".target:nth-child(2)").addClass("animated bounce");
+    $(".target:even").addClass("animated shake");
+    $("body").addClass("animated hinge"); // <--
+  });
+</script>
