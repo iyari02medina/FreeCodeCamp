@@ -14,15 +14,17 @@ const JSX = <h1>Hello JSX!</h1>;
   <p>Paragraph Three</p>
 </div>;
 
-const JSX2 = <div>
+const JSX2 = (
+  <div>
     <h1>Hola mundo!</h1>
     <p>aprendiendo react</p>
     <ul>
-        <li>japlin</li>
-        <li>trufa</li>
-        <li>charly</li>
+      <li>japlin</li>
+      <li>trufa</li>
+      <li>charly</li>
     </ul>
-</div>
+  </div>
+);
 
 // ### 3. Agregar comentarios en JSX
 
@@ -39,7 +41,7 @@ const JSX2 = <div>
 // Una diferencia clave en JSX es que ya no puede usar la palabra classpara definir clases HTML. Esto se debe a que classes una palabra reservada en JavaScript. En cambio, JSX usa className.
 
 const JSX3 = (
-  <div className = 'myDiv' >
+  <div className="myDiv">
     <h1>Add a class to this div</h1>
   </div>
 );
@@ -63,13 +65,11 @@ const JSX4 = (
 // Hay dos formas de crear un componente React. La primera forma es usar una función de JavaScript. Definir un componente de esta manera crea un componente funcional sin estado . piense en un componente sin estado como uno que puede recibir datos y representarlos, pero no administra ni realiza un seguimiento de los cambios en esos datos. simplemente escriba una función de JavaScript que devuelva JSX o null. Una cosa importante a tener en cuenta es que React requiere que el nombre de su función comience con una letra mayúscula.
 // Debido a que un componente JSX representa HTML, puede juntar varios componentes para crear una página HTML más compleja. Esta es una de las ventajas clave de la arquitectura de componentes que proporciona React. Le permite componer su interfaz de usuario a partir de muchos componentes separados y aislados. Esto facilita la creación y el mantenimiento de interfaces de usuario complejas.
 
-const MyComponent = function() {
-  return(
-    <div>Completed challenge!</div>
-);
-}
+const MyComponent = function () {
+  return <div>Completed challenge!</div>;
+};
 
-// ### 8. Crear un componente de react 
+// ### 8. Crear un componente de react
 
 // La otra forma de definir un componente de React es con la classsintaxis de ES6. En el siguiente ejemplo, Kittenextends React.Component:
 
@@ -90,13 +90,13 @@ class MyComponent2 extends React.Component {
     super(props);
   }
   render() {
-  return (
+    return (
       <div>
-       <h1>Hello React!</h1>
+        <h1>Hello React!</h1>
       </div>
     );
   }
-};
+}
 
 // ### 9. Crear un componente con composición
 
@@ -130,4 +130,95 @@ class ParentComponent extends React.Component {
       </div>
     );
   }
+}
+
+// ### 10. Use React para renderizar componentes anidados
+
+// Divide su interfaz de usuario en sus bloques de construcción básicos, y esas piezas se convierten en los componentes. Esto ayuda a separar el código responsable de la interfaz de usuario del código responsable de manejar la lógica de la aplicación.
+
+const TypesOfFruit = () => {
+  return (
+    <div>
+      <h2>Fruits:</h2>
+      <ul>
+        <li>Apples</li>
+        <li>Blueberries</li>
+        <li>Strawberries</li>
+        <li>Bananas</li>
+      </ul>
+    </div>
+  );
 };
+const Fruits = () => {
+  return (
+    <div>
+      <TypesOfFruit />
+    </div>
+  );
+};
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        <Fruits />
+      </div>
+    );
+  }
+}
+
+// ### 11. Componer componentes de react
+
+// Puede representar elementos JSX, componentes funcionales sin estado y componentes de clase ES6 dentro de otros componentes.
+
+class Fruits2 extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h2>Fruits:</h2>
+        <NonCitrus />
+        <Citrus />
+      </div>
+    );
+  }
+}
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        <Fruits2 />
+        <Vegetables />
+      </div>
+    );
+  }
+}
+
+// ### 12. Renderizar un componente de clase al DOM
+
+// ninguno de los códigos de React que escriba se procesará en el DOM sin realizar una llamada a la API de ReactDOM. ReactDOM.render(componentToRender, targetNode). El primer argumento es el componente React que desea renderizar. El segundo argumento es el nodo DOM en el que desea representar ese componente. para los componentes de React, debe usar la misma sintaxis que si estuviera renderizando un componente anidado, por ejemplo ReactDOM.render(<ComponentToRender />, targetNode)
+
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        <Fruits />
+        <Vegetables />
+      </div>
+    );
+  }
+}
+ReactDOM.render(<TypesOfFood />, document.getElementById("challenge-node"));
