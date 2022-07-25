@@ -214,3 +214,56 @@ function titleCase2(str) {
 
 console.log(titleCase2("I'm a little tea pot"));
 
+// ### 12. Slice and Splice
+// Se le dan dos matrices y un índice. Copie cada elemento de la primera matriz en la segunda matriz, en orden.Comience a insertar elementos en el índice nde la segunda matriz. Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales después de que se ejecute la función.
+
+function frankenSplice(arr1,arr2, n){
+  let newArr = arr2.slice();
+  for(let i = 0; i< arr1.length; i++){
+    newArr.splice(n,0,arr1[i]);
+    n++;
+  }
+  return newArr;
+}
+console.log(frankenSplice([1, 2, 3], [4, 5, 6],2));
+
+// ó
+
+function frankenSplice2(arr1, arr2, n) {
+  let localArr = arr2.slice();
+  localArr.splice(n, 0, ...arr1);
+  return localArr;
+}
+console.log(frankenSplice2([1, 2, 3], [4, 5, 6], 2));
+
+// ### 13. Falsy Bouncer
+// Elimina todos los valores falsos de una matriz. Los valores falsos en JavaScript son false, null, 0, "", undefinedy NaN.
+
+function bouncer(arr) {
+  return arr.filter(Boolean);
+}
+console.log(bouncer([7, "ate", "", false, 9]));
+
+// ### 14. Where do I Belong
+// Devuelve el índice más bajo en el que se debe insertar un valor (segundo argumento) en una matriz (primer argumento) una vez que se ha ordenado. El valor devuelto debe ser un número.
+
+function getIndexToIns(arr, num) {
+  return arr.filter((i)=>i<num).length;
+}
+console.log(getIndexToIns([40, 60], 50))
+
+// 15. Mutaciones 
+// Retorna truesi la cadena en el primer elemento de la matriz contiene todas las letras de la cadena en el segundo elemento de la matriz.
+
+function mutation(arr) {
+  console.log(arr[1].split(''))
+
+  return arr[1]
+    .toLowerCase()
+    .split("")
+    .every(function (letter) {
+      return arr[0].toLowerCase().indexOf(letter) !== -1 ;
+    });
+}
+console.log(mutation(["hello", "hey"]));
+
