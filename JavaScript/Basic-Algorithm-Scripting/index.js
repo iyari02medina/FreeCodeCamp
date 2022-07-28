@@ -267,3 +267,15 @@ function mutation(arr) {
 }
 console.log(mutation(["hello", "hey"]));
 
+// ### 16. Chunky Monkey
+// Escriba una función que divida una matriz (primer argumento) en grupos de la longitud de size(segundo argumento) y los devuelva como una matriz bidimensional.
+
+function chunkArrayInGroups(arr, size) {
+  let newArr = [];
+  while (arr.length > 0) {
+    
+    newArr.push(arr.splice(0, size));
+  }
+  return newArr;
+}
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
