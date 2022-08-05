@@ -293,6 +293,34 @@ console.log(splitify(hello))
 const sentensify = (str) => str.split(/\W/).join(' ')
 console.log(sentensify("May-the-force-be-with-you"));
 
+// ### 21. Aplicar programación funcional para convertir cadenas en URL
 
+let urlSlug = (title) => title.toLowerCase().trim().split(/\s+/).join('-')
+console.log(urlSlug('A Mind Nedds Books Like A Sword Needs A Whetstone'))
 
+// ### 22. Use el método every() para verificar que cada elemento en una matriz cumpla con un criterio
+// El every() método funciona con matrices para verificar si cada elemento pasa una prueba en particular. Devuelve un valor booleano, true si todos los valores cumplen los criterios, false si no.
 
+let checkPositive = (arr) => arr.every(i=> i>0);
+console.log(checkPositive([1,2,3-4-5]))
+
+// ### 23. Use el método some() para verificar si algun elemento en una matriz cumpla con un criterio
+// El somemétodo funciona con matrices para verificar si algún elemento pasa una prueba en particular. Devuelve un valor booleano, truesi alguno de los valores cumple los criterios, falsesi no.
+
+let checkPositiveSome = (arr) => arr.some(i=>i>0);
+console.log(checkPositiveSome([1,-3,-4,3]));
+
+// ### 24. Introducción a Curring y Partial Application
+// La aridad de una función es el número de argumentos que requiere. Currar una función significa convertir una función de N aridad en N funciones de aridad 1. reestructura una función para que tome un argumento, luego devuelva otra función que tome el siguiente argumento, y así sucesivamente.
+
+// function add(x) {
+//   return function (y) {
+//     return function (z) {
+//       return x + y + z;
+//     };
+//   };
+// }
+// add(10)(20)(30);
+
+let add = (x) => (y) => (z) => x + y + z;
+console.log(add(10)(20)(30)) // resultado 60, pero no se imprime con Quokka
