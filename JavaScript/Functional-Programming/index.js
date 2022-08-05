@@ -281,6 +281,18 @@ let nonMutatingSort = (arr) => {
 console.log(nonMutatingSort(globalArray))
 
 // ### 19. Dividir una cadena en una matriz usando el método split()
+// El splitmétodo divide una cadena en una matriz de cadenas. Toma un argumento para el delimitador, que puede ser un carácter para dividir la cadena o una expresión regular. Por ejemplo, si el delimitador es un espacio, obtiene una matriz de palabras, y si el delimitador es una cadena vacía, obtiene una matriz de cada carácter de la cadena.
+
+const hello = 'Hello World,I-am code'
+const splitify = (str) => str.split(/\W/) // -> (/\W/) Matches any non-word character. 
+console.log(splitify(hello))
+
+// ### 20. Combine una matriz en una cadena usando el método de join()
+// El join() método se utiliza para unir los elementos de una matriz para crear una cadena. Toma un argumento para el delimitador que se usa para separar los elementos de la matriz en la cadena.
+
+const sentensify = (str) => str.split(/\W/).join(' ')
+console.log(sentensify("May-the-force-be-with-you"));
+
 
 
 
