@@ -34,5 +34,10 @@ const spinalCase = (str) =>str.split(/\s|_|(?=[A-Z])/).join("-").toLowerCase();
 console.log(spinalCase("This Is Spinal Tap"));   
 
 // ### 6. Jerga
-// - Si una palabra comienza con una consonante, tome la primera consonante o grupo de consonantes, muévala al final de la palabra y añádala ay.
-// - Si una palabra comienza con una vocal, solo agregue wayal final.
+// -> Si una palabra comienza con una consonante, tome la primera consonante o grupo de consonantes, muévala al final de la palabra y añádala ay.
+// -> Si una palabra comienza con una vocal, solo agregue way al final.
+
+const translatePigLatin = (str) => str.replace(/^[aeiou]\w*/, "$&way").replace(/(^[^aeiou]+)(\w*)/, "$2$1ay");
+console.log(translatePigLatin("consonant"));
+
+// ### 7. Buscar y reemplazar
